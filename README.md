@@ -27,6 +27,21 @@ This script automates a fast recon framework for gathering information about a t
 **Installation:**
 
 Follow the installation instructions for each tool on their respective websites or repositories. Some tools may require additional dependencies, like Python and Go.
+**quick install :**
+
+```
+go get -u github.com/tomnomnom/assetfinder
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+go install github.com/tomnomnom/waybackurls@latest
+go install github.com/lc/gau/v2/cmd/gau@latest
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+go install -v github.com/tomnomnom/anew@latest
+go install -v github.com/tomnomnom/gf@latest
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+apt-get install -y wafw00f
+apt-get install -y dirsearch
+```
 
 **Usage:**
 
