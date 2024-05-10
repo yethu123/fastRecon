@@ -27,6 +27,13 @@ This script automates a fast recon framework for gathering information about a t
 **Installation:**
 
 Follow the installation instructions for each tool on their respective websites or repositories. Some tools may require additional dependencies, like Python and Go.
+**Environmaent**
+```
+#go
+export GOROOT=/usr/local/go
+export GOPATH=/root/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
 **quick install :**
 
 ```
