@@ -48,6 +48,7 @@ go install -v github.com/tomnomnom/gf@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 apt-get install -y wafw00f
 apt-get install -y dirsearch
+go install github.com/lc/gau/v2/cmd/gau@latest
 ```
 
 **Usage:**
