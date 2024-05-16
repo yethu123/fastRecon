@@ -12,17 +12,37 @@ This script automates a fast recon framework for gathering information about a t
 
 **Tools:**
 
-- **Subfinder:** [https://github.com/projectdiscovery/subfinder](https://github.com/projectdiscovery/subfinder)
-- **Assetfinder:** [https://github.com/tomnomnom/assetfinder](https://github.com/tomnomnom/assetfinder)
-- **HTTPX:** [https://github.com/projectdiscovery/httpx](https://github.com/projectdiscovery/httpx)
-- **Waybackurls:** [https://github.com/tomnomnom/waybackurls](https://github.com/tomnomnom/waybackurls)
-- **Gau:** [https://github.com/lc/gau](https://github.com/lc/gau)
-- **GF (GrepFuzz):** [https://github.com/tomnomnom/gf](https://github.com/tomnomnom/gf)
-- **Aquatone:** [https://github.com/michenriksen/aquatone](https://github.com/michenriksen/aquatone)
-- **Wafw00f:** [https://github.com/EnableSecurity/wafw00f](https://github.com/EnableSecurity/wafw00f)
-- **Dirsearch:** [https://github.com/maurosoria/dirsearch](https://github.com/maurosoria/dirsearch)
-- **Nuclei:** [https://github.com/projectdiscovery/nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)
-- **Afrog:** [https://github.com/zan8in/afrog](https://github.com/zan8in/afrog)
+-assetfinder
+-subfinder
+-httpx
+-waybackurls
+-gau (GetAllUrls)
+-nuclei
+-anew
+-gf
+-katana
+-dalfox
+-notify
+-JSParser
+-Sublist3r
+-teh_s3_bucketeers
+-wpscan
+-dirsearch
+-lazys3
+-virtual-host-discovery
+-sqlmap
+-knock.py
+-lazyrecon
+-nmap
+-massdns
+-asnlookup
+-httprobe
+-unfurl
+-crtndstry
+-SecLists
+-wafw00f
+-gobuster
+-feroxbuster
 
 **Installation:**
 
