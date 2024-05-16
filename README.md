@@ -11,38 +11,37 @@ This script automates a fast recon framework for gathering information about a t
 **Operating System:** Linux-based systems (e.g., Ubuntu, Debian, Kali)
 
 **Tools:**
-
--assetfinder
--subfinder
--httpx
--waybackurls
--gau (GetAllUrls)
--nuclei
--anew
--gf
--katana
--dalfox
--notify
--JSParser
--Sublist3r
--teh_s3_bucketeers
--wpscan
--dirsearch
--lazys3
--virtual-host-discovery
--sqlmap
--knock.py
--lazyrecon
--nmap
--massdns
--asnlookup
--httprobe
--unfurl
--crtndstry
--SecLists
--wafw00f
--gobuster
--feroxbuster
+ 1. assetfinder 
+ 2. subfinder 
+ 3. httpx 
+ 4. waybackurls 
+ 5. gau (GetAllUrls) 
+ 6. nuclei 
+ 7. anew
+ 8. gf 
+ 9. katana 
+ 10. dalfox 
+ 11. notify 
+ 12. JSParser 
+ 13. Sublist3r 
+ 14. teh_s3_bucketeers 
+ 15. wpscan
+ 16. dirsearch 
+ 17. lazys3 
+ 18. virtual-host-discovery 
+ 19. sqlmap 
+ 20. knock.py 
+ 21. lazyrecon
+ 22. nmap 
+ 23. massdns 
+ 24. asnlookup 
+ 25. httprobe 
+ 26. unfurl 
+ 27. crtndstry 
+ 28. SecLists 
+ 29. wafw00f
+ 30. gobuster 
+ 31. feroxbuster
 
 **Installation:**
 
