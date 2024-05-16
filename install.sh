@@ -83,11 +83,6 @@ sudo gem install bundler && bundle install --without test
 cd ~/tools/
 echo "done"
 
-echo "installing dirsearch"
-git clone https://github.com/maurosoria/dirsearch.git
-cd ~/tools/
-echo "done"
-
 echo "installing lazys3"
 git clone https://github.com/nahamsec/lazys3.git
 cd ~/tools/
@@ -98,10 +93,7 @@ git clone https://github.com/jobertabma/virtual-host-discovery.git
 cd ~/tools/
 echo "done"
 
-echo "installing sqlmap"
-git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-cd ~/tools/
-echo "done"
+
 
 echo "installing knock.py"
 git clone https://github.com/guelfoweb/knock.git
