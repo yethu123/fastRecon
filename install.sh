@@ -12,6 +12,8 @@ go install -v github.com/tomnomnom/gf@latest
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 go install github.com/hahwul/dalfox/v2@latest
 go install github.com/projectdiscovery/notify/cmd/notify@latest
+go install github.com/tomnomnom/qsreplace@latest
+go install -v github.com/zan8in/afrog/cmd/afrog@latest
 
 # Create a tools folder
 mkdir -p ~/tools
