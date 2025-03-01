@@ -56,7 +56,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 **quick install :**
 
 ```
-go get -u github.com/tomnomnom/assetfinder
+go install github.com/tomnomnom/assetfinder@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 go install github.com/tomnomnom/waybackurls@latest
@@ -65,9 +65,10 @@ go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 go install -v github.com/tomnomnom/anew@latest
 go install -v github.com/tomnomnom/gf@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-apt-get install -y wafw00f
-apt-get install -y dirsearch
 go install github.com/lc/gau/v2/cmd/gau@latest
+sudo apt install assetfinder
+sudo apt-get install -y wafw00f
+sudo apt-get install -y dirsearch
 ```
 ## GF Installation
 
