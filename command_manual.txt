@@ -1,4 +1,3 @@
-# Additional commands for manual execution
 # Run nuclei vulnerability scanner
 nuclei -l \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/nuclei/nuclei.txt\"
 
