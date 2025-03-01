@@ -69,6 +69,42 @@ apt-get install -y wafw00f
 apt-get install -y dirsearch
 go install github.com/lc/gau/v2/cmd/gau@latest
 ```
+## GF Installation
+
+Follow these steps to install and configure `gf`:
+
+### **1. Create the GF Configuration Directory**
+
+```bash
+mkdir ~/.gf
+```
+
+### **2. Clone and Copy GF Patterns**
+
+```bash
+git clone https://github.com/1ndianl33t/Gf-Patterns.git ~/tools/
+cp ~/tools/Gf-Patterns/*.json ~/.gf/
+```
+
+### **3. Clone and Copy Default GF Examples**
+
+```bash
+git clone https://github.com/tomnomnom/gf.git ~/tools/
+cp ~/tools/gf/examples/*.json ~/.gf/
+```
+
+### **4. Verify GF Installation**
+
+Run the following command to check if `gf` is working:
+
+```bash
+gf -list
+```
+
+This should display the available patterns.
+
+Now, you are ready to use `gf` for pattern-based filtering! 🚀
+
 
 **Usage:**
 
