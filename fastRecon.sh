@@ -58,31 +58,13 @@ mkdir -p "$fast_recon_dir" "$fast_recon_dir/gf-data" "$fast_recon_dir/subdomains
 
 # Function to store manual commands
 manual_command() {
-    echo -e "${YELLOW}${LARGE}Saving manual commands...${RESET}"
-    local manual_command="# Additional commands for manual execution
-    
-# Run nuclei vulnerability scanner
-nuclei -l \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/nuclei/nuclei.txt\"
-
-# Check for WAF protection
-wafw00f -i \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/wafw00f.txt\"
-
-# Run SQLMap on potential SQL injection points
-sqlmap -m \"$fast_recon_dir/gf-data/sqli.urls\" --level 5 --risk 3 --batch --random-agent --dbs --tamper=between
-
-# XSS scanning with dalfox
-dalfox -b hahwul.xss.ht file \"$fast_recon_dir/gf-data/xss.urls\"
-
-# LFI testing
-cat \"$fast_recon_dir/gf-data/lfi.urls\" | qsreplace FUZZ | while read url ; do ffuf -u \$url -mr \"root:x\" -w /path/to/lfi-payloads.txt ; done"
-
-  # Save commands to manual_command.txt
-  echo "$manual_commands"
-    
-    echo "$manual_command" > "$fast_recon_dir/manual_command.txt"
+   echo -e "${YELLOW}${LARGE}Saving manual commands...${RESET}"
+    local manual_rawcommand="$(curl -s https://raw.githubusercontent.com/yethu123/fastRecon/refs/heads/main/command_manual.txt)"
+    echo "$manual_rawcommand" > "$fast_recon_dir/manual_rawcommand.txt"
+    sed "s|reconDir|$fast_recon_dir|g"  "$fast_recon_dir/manual_rawcommand.txt" > "$fast_recon_dir/manual_command1.txt"
+    rm "$fast_recon_dir/manual_rawcommand.txt"
     echo -e "${GREEN}${LARGE}Manual commands saved to: $fast_recon_dir/manual_command.txt${RESET}"
 }
-
 # Function to run Subfinder
 run_subfinder() {
     echo -e "${YELLOW}${LARGE}Running Subfinder...${RESET}"
