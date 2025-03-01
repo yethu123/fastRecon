@@ -1,4 +1,29 @@
 #!/bin/bash
+#GF
+mkdir ~/.gf
+git clone https://github.com/1ndianl33t/Gf-Patterns.git ~/tools/
+cp ~/tools/Gf-Patterns/*.json ~/.gf/
+git clone https://github.com/tomnomnom/gf.git ~/tools/
+cp ~/tools/gf/examples/*.json ~/.gf/
+#gau
+echo 'verbose = false
+retries = 15
+subdomains = false
+parameters = false
+providers = ["wayback","commoncrawl","otx","urlscan"]
+blacklist = ["ttf","woff","svg","png","jpg"]
+json = false
+
+[urlscan]
+  apikey = ""
+
+[filters]
+  from = ""
+  to = ""
+  matchstatuscodes = []
+  matchmimetypes = []
+  filterstatuscodes = []
+  filtermimetypes = ["image/png", "image/jpg", "image/svg+xml"]' | tee ~/.gau.toml
 
 # Install tools via go
 go install -v github.com/tomnomnom/assetfinder@latest
@@ -122,11 +147,11 @@ cd ~/tools/
 echo "done"
 
 echo "installing httprobe"
-go get -u github.com/tomnomnom/httprobe 
+go install github.com/tomnomnom/httprobe@latest
 echo "done"
 
 echo "installing unfurl"
-go get -u github.com/tomnomnom/unfurl 
+go install github.com/tomnomnom/unfurl@latestest
 echo "done"
 
 echo "installing crtndstry"
