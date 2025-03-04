@@ -88,18 +88,34 @@ run_assetfinder() {
 # Function to run HTTP enumeration with httpx
 run_httpx() {
     echo -e "${YELLOW}${LARGE}Running httpx...${RESET}"
-    cat "$fast_recon_dir/subdomains/subdomains.txt" | httpx -t 50 -p 80,443,8000,8080,8443 | \
-        anew "$fast_recon_dir/httpx.txt"
+    cat "$fast_recon_dir/subdomains/subdomains.txt" | httpx -t 50 -p 80,443,8000,8080,8443 | anew "$fast_recon_dir/httpx_raw.txt" 
     echo "cat \"$fast_recon_dir/subdomains/subdomains.txt\" | httpx -t 50 -p 80,443,8000,8080,8443 | anew \"$fast_recon_dir/httpx.txt\"" >> "$fast_recon_dir/commands_log.txt"
     echo -e "${GREEN}${LARGE}HTTP enumeration completed.${RESET}"
+    cat "$fast_recon_dir/httpx_raw.txt" | grep "$target_domain" | anew "$fast_recon_dir/httpx.txt"
 }
 
 # Function to run Wayback URLs
 run_waybackurls() {
-    echo -e "${YELLOW}${LARGE}Running Wayback URLs...${RESET}"
-    cat "$fast_recon_dir/httpx.txt" | gau | grep "$target_domain" | anew "$fast_recon_dir/waybackurls.txt"
-    echo "cat \"$fast_recon_dir/httpx.txt\" | gau | grep \"$target_domain\" | anew \"$fast_recon_dir/waybackurls.txt\"" >> "$fast_recon_dir/commands_log.txt"
-    echo -e "${GREEN}${LARGE}Wayback URLs captured.${RESET}"
+    # Print the "Running Wayback URLs..." message
+    echo -e "${YELLOW}${LARGE}Running gau...${RESET}"
+    
+    # Run 'gau' on the list of URLs from 'httpx.txt', filter by target domain, and save results to 'gau.txt'
+    cat "$fast_recon_dir/httpx.txt" | gau | grep "$target_domain" | anew "$fast_recon_dir/contents/gau.txt"
+    
+    # Log the 'gau' command to the commands_log.txt
+    echo "cat \"$fast_recon_dir/httpx.txt\" | gau | grep \"$target_domain\" | anew \"$fast_recon_dir/contents/gau.txt\"" >> "$fast_recon_dir/commands_log.txt"
+    echo -e "${YELLOW}${LARGE}Running katana...${RESET}"
+    # Run 'katana' to extract URLs and output to 'katana.txt'
+    katana -list "$fast_recon_dir/httpx.txt" -f url -d 10 -o "$fast_recon_dir/contents/katana.txt"
+    
+    # Log the 'katana' command to the commands_log.txt
+    echo "katana -list \"$fast_recon_dir/httpx.txt\" -f url -d 10 -o \"$fast_recon_dir/contents/katana.txt\"" >> "$fast_recon_dir/commands_log.txt"
+    
+    # Combine the URLs from 'gau.txt' and 'katana.txt' and save them into 'waybackurls.txt'
+    cat "$fast_recon_dir/contents/gau.txt" "$fast_recon_dir/contents/katana.txt" | anew "$fast_recon_dir/waybackurls.txt"
+    
+    # Print success message
+    echo -e "${GREEN}${LARGE} URLs captured with gau and katana.${RESET}"
 }
 
 # Function to run GF (GrepFuzz)
